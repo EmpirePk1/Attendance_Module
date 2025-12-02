@@ -1,12 +1,9 @@
 import os
 from pymongo import MongoClient
 
-MONGO_URI = os.environ.get("MONGO_URI")
-
+MONGO_URI = os.environ.get("MONGO_URI")  # safer way
 if not MONGO_URI:
-    # Prevent crash during build on Railway
-    print("Warning: MONGO_URI is not set — build environment")
-    MONGO_URI = "mongodb://0.0.0.0"  # dummy fallback
+    raise Exception("MONGO_URI environment variable is not set!")
 
 client = MongoClient(MONGO_URI)
 db = client["hrmsxdb"]
