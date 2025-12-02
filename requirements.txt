@@ -3,6 +3,4 @@ pymongo==4.6.1
 dnspython
 gunicorn
 setuptools
-
-
-
+whitenoise
