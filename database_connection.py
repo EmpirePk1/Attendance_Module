@@ -1,13 +1,12 @@
+import os
 import pymongo
 from pymongo import MongoClient
 from django.conf import settings
 
 #MongoDB Atlas Connection
-url =  "mongodb://localhost:27017/"
-client = MongoClient(url)
+client = MongoClient(os.environ["MONGO_URI"])
+db = client["hrmsxdb"]
 
-# Selecting Database
-db = client["HRMSXdb"]
 
 # Creating Database Collections (Tables)
 admin_col = db["admin"]
