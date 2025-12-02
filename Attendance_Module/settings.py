@@ -29,6 +29,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     "*",
     "attendance-app.onrender.com",
+    "attendancemodule-production.up.railway.app"
 ]
 
 
