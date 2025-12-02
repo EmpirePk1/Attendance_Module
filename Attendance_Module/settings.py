@@ -26,7 +26,10 @@ SECRET_KEY = 'django-insecure-dv!&xkpk+c6i3hij1p$pr-038&&g55kgpm0=@l5syn3y8e=j)v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["attendance-app.onrender.com"]
+ALLOWED_HOSTS = [
+    "*",
+    "attendance-app.onrender.com",
+]
 
 
 # Application definition
