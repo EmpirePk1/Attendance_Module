@@ -1,1 +1,10 @@
+[build]
+builder = "NIXPACKS"
+
+[deploy]
+start = "gunicorn Attendance_Module.wsgi:application"
+
+[variables]
+# Declare secrets here
+MONGO_URI = "secret"
 
