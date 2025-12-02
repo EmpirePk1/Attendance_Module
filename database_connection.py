@@ -1,14 +1,16 @@
 import os
-import pymongo
 from pymongo import MongoClient
-from django.conf import settings
 
-#MongoDB Atlas Connection
-client = MongoClient(os.environ["MONGO_URI"])
+MONGO_URI = os.environ.get("MONGO_URI")
+
+if not MONGO_URI:
+    # Prevent crash during build on Railway
+    print("Warning: MONGO_URI is not set — build environment")
+    MONGO_URI = "mongodb://0.0.0.0"  # dummy fallback
+
+client = MongoClient(MONGO_URI)
 db = client["hrmsxdb"]
 
-
-# Creating Database Collections (Tables)
 admin_col = db["admin"]
 departments_col = db["departments"]
 staff_col = db["staff"]
