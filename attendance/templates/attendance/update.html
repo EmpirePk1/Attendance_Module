@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Update Attendance{% endblock %}
+{% block content %}
+<div class="card p-4 shadow">
+    <h3>Update Attendance</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3"><label>Department ID</label><input name="department_id" class="form-control" value="{{ attendance.department_id }}" required></div>
+        <div class="mb-3"><label>Date</label><input name="attendance_date" type="date" class="form-control" value="{{ attendance.attendance_date }}" required></div>
+        <button class="btn btn-primary">Update</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Create Attendance Report{% endblock %}
+{% block content %}
+<div class="card p-4 shadow">
+    <h3>Create Attendance Report</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3"><label>Staff ID</label><input name="staff_id" class="form-control" required></div>
+        <div class="mb-3"><label>Attendance ID</label><input name="attendance_id" class="form-control" required></div>
+        <div class="mb-3"><label>Status</label><input name="status" class="form-control" required></div>
+        <button class="btn btn-primary">Create</button>
+    </form>
+</div>
+{% endblock %}

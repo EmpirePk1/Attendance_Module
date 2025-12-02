@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Notification Detail{% endblock %}
+{% block content %}
+<div class="card p-4 shadow">
+    <h3>Notification Detail</h3>
+    <p><strong>Staff ID:</strong> {{ notification.staff_id }}</p>
+    <p><strong>Message:</strong> {{ notification.message }}</p>
+</div>
+{% endblock %}

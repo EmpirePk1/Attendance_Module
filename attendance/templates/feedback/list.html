@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Feedback{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Feedbacks</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Feedback</th>
+                <th>Reply</th>
+                <th>Date</th>
+                {% if role == "admin" %}
+                <th>Actions</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for feedback in feedbacks %}
+            <tr>
+                <td>{{ feedback.feedback }}</td>
+                <td>{{ feedback.feedback_reply|default:"-" }}</td>
+                <td>{{ feedback.created_at }}</td>
+                {% if role == "admin" %}
+                <td>
+                    <a href="/feedback/{{ feedback.id }}/update/" class="btn btn-warning btn-sm">Reply</a>
+                    <a href="/feedback/{{ feedback.id }}/delete/" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

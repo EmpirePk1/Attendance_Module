@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Admins{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Admin List</h2>
+    <a href="/admin/create/" class="btn btn-success mb-3">Add Admin</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for admin in admins %}
+            <tr>
+                <td>{{ admin.name }}</td>
+                <td>{{ admin.email }}</td>
+                <td>
+                    <a href="/admin/{{ admin.id }}/" class="btn btn-info btn-sm">View</a>
+                    <a href="/admin/update/{{ admin.id }}/" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="/admin/delete/{{ admin.id }}/" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

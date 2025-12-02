@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Attendance Reports{% endblock %}
+{% block content %}
+<h3>{{ role|title }} Attendance Reports</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Staff</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for report in reports %}
+            <tr>
+                <td>{{ report.staff_id }}</td>
+                <td>{{ report.created_at }}</td>
+                <td>{{ report.status }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

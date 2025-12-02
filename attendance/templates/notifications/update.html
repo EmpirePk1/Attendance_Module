@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Update Notification{% endblock %}
+{% block content %}
+<div class="card p-4 shadow">
+    <h3>Update Notification</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label>Message</label>
+            <textarea name="message" class="form-control" rows="3" required>{{ notification.message }}</textarea>
+        </div>
+        <button class="btn btn-primary">Update</button>
+    </form>
+</div>
+{% endblock %}

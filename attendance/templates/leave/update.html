@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Update Leave{% endblock %}
+{% block content %}
+<div class="card p-4 shadow">
+    <h3>Update Leave Request</h3>
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label>Leave Date</label>
+            <input type="text" class="form-control" value="{{ leave.leave_date }}" disabled>
+        </div>
+
+        <div class="mb-3">
+            <label>Leave Message</label>
+            <textarea class="form-control" rows="3" disabled>{{ leave.leave_message }}</textarea>
+        </div>
+
+        <div class="mb-3">
+            <label>Status</label>
+            <select name="status" class="form-select">
+                <option value="Pending" {% if leave.leave_status == "Pending" %}selected{% endif %}>Pending</option>
+                <option value="Approved" {% if leave.leave_status == "Approved" %}selected{% endif %}>Approved</option>
+                <option value="Rejected" {% if leave.leave_status == "Rejected" %}selected{% endif %}>Rejected</option>
+            </select>
+        </div>
+
+        <button class="btn btn-primary">Update</button>
+    </form>
+</div>
+{% endblock %}

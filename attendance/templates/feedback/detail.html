@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Feedback Detail{% endblock %}
+{% block content %}
+<div class="card p-4 shadow">
+    <h3>Feedback Detail</h3>
+    <p><strong>Staff ID:</strong> {{ feedback.staff_id }}</p>
+    <p><strong>Feedback:</strong> {{ feedback.feedback }}</p>
+    <p><strong>Reply:</strong> {{ feedback.feedback_reply }}</p>
+</div>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Welcome, {{ user_name }}</h2>
+    <a href="/logout/" class="btn btn-primary btn-lg mt-3">Logout</a>
+    <hr>
+
+    {% if role == "admin" %}
+    <h4>Admin Dashboard</h4>
+    <div class="row">
+        <!-- Admin Management -->
+        <div class="col-md-3 mb-3">
+            <a href="/admin/list/" class="btn btn-success w-100">Manage Admins</a>
+        </div>
+        <div class="col-md-3 mb-3">
+            <a href="/staff/list/" class="btn btn-primary w-100">Manage Staff</a>
+        </div>
+        <div class="col-md-3 mb-3">
+            <a href="/departments/list/" class="btn btn-warning w-100">Manage Departments</a>
+        </div>
+
+        <!-- Attendance & Reports -->
+        <div class="col-md-3 mb-3">
+            <a href="/attendance/list/" class="btn btn-info w-100">Attendance</a>
+        </div>
+        <div class="col-md-3 mb-3">
+            <a href="/attendance_reports/list/" class="btn btn-secondary w-100">Attendance Reports</a>
+        </div>
+
+        <!-- Leave -->
+        <div class="col-md-3 mb-3">
+            <a href="/leave/list/" class="btn btn-dark w-100">Leave Requests</a>
+        </div>
+
+        <!-- Feedback -->
+        <div class="col-md-3 mb-3">
+            <a href="/feedback/list/" class="btn btn-success w-100">Feedbacks</a>
+        </div>
+
+        <!-- Notifications -->
+        <div class="col-md-3 mb-3">
+            <a href="/notifications/create/" class="btn btn-primary w-100">Notifications</a>
+        </div>
+    </div>
+
+    {% elif role == "staff" %}
+    <h4>Staff Dashboard</h4>
+    <div class="row">
+        <!-- Attendance -->
+        <div class="col-md-4 mb-3">
+            <a href="/attendance/checkin_checkout/" class="btn btn-info w-100">Check-in / Check-out</a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a href="/attendance/mylist/" class="btn btn-secondary w-100">My Attendance</a>
+        </div>
+
+        <!-- Leave -->
+         <div class="col-md-4 mb-3">
+            <a href="/leave/apply/" class="btn btn-primary w-100">Leave Request</a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a href="/leave/mylist/" class="btn btn-dark w-100">My Leave</a>
+        </div>
+
+        <!-- Feedback -->
+        <div class="col-md-4 mb-3">
+            <a href="/feedback/mylist/" class="btn btn-info w-100">Feedback History</a>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <a href="/feedback/create/" class="btn btn-success w-100">Add Feedback</a>
+        </div>
+
+        <!-- Notifications -->
+        <div class="col-md-4 mb-3">
+            <a href="/notifications/mylist/" class="btn btn-primary w-100">My Notifications</a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

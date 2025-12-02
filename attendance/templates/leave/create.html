@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Create Leave{% endblock %}
+{% block content %}
+<div class="card p-4 shadow">
+    <h3>Create Leave Request</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label>Staff ID</label>
+            <input name="staff_id" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Leave Date</label>
+            <input name="leave_date" type="date" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Leave Message</label>
+            <textarea name="leave_message" class="form-control" rows="3" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label>Leave Status</label>
+            <select name="leave_status" class="form-select">
+                <option value="Pending">Pending</option>
+                <option value="Approved">Approved</option>
+                <option value="Rejected">Rejected</option>
+            </select>
+        </div>
+        <button class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

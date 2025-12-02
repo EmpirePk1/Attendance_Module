@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Attendance Reports{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Attendance Reports</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Staff</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in records %}
+                <tr>
+                    <td>{{ record.staff_id }}</td>
+                    <td>{{ record.status }}</td>
+                    <td>{{ record.created_at }}</td>
+                    <td>
+                        <a href="/attendance_report/{{ record.id }}/update/" class="btn btn-warning btn-sm">Update</a>
+                        <a href="/attendance_report/{{ record.id }}/delete/" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

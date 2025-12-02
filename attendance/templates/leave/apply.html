@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Apply Leave{% endblock %}
+
+{% block content %}
+<div class="card p-4 shadow">
+    <h3>Apply for Leave</h3>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label>Leave Date</label>
+            <input type="date" name="leave_date" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Leave Reason</label>
+            <textarea name="leave_message" class="form-control" rows="3" required></textarea>
+        </div>
+
+        <button class="btn btn-primary">Apply Leave</button>
+    </form>
+</div>
+{% endblock %}

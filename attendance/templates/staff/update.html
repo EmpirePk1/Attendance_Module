@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Update Staff{% endblock %}
+{% block content %}
+<div class="card p-4 shadow">
+    <h3>Update Staff</h3>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3"><label>Name</label><input name="name" class="form-control" value="{{ staff.name }}" required></div>
+        <div class="mb-3"><label>Email</label><input name="email" type="email" class="form-control" value="{{ staff.email }}" required></div>
+        <div class="mb-3"><label>Phone</label><input name="phone" class="form-control" value="{{ staff.phone }}" required></div>
+        <div class="mb-3">
+            <label>Department</label>
+            <select name="department_id" class="form-select">
+                {% for department in departments %}
+                <option value="{{ department.id }}" {% if department.id == staff.department_id %}selected{% endif %}>{{ dep.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label>Gender</label>
+            <select name="gender" class="form-select">
+                <option {% if staff.gender == "Male" %}selected{% endif %}>Male</option>
+                <option {% if staff.gender == "Female" %}selected{% endif %}>Female</option>
+            </select>
+        </div>
+        <button class="btn btn-primary">Update</button>
+    </form>
+</div>
+{% endblock %}

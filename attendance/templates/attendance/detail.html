@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Attendance Detail{% endblock %}
+{% block content %}
+<div class="card p-4 shadow">
+    <h3>Attendance Detail</h3>
+    <p><strong>Department ID:</strong> {{ attendance.department_id }}</p>
+    <p><strong>Date:</strong> {{ attendance.attendance_date }}</p>
+</div>
+{% endblock %}

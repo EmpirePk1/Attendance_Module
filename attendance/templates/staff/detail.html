@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Staff Detail{% endblock %}
+{% block content %}
+<div class="card p-4 shadow">
+    <h3>Staff Detail</h3>
+    <p><strong>Name:</strong> {{ staff.name }}</p>
+    <p><strong>Email:</strong> {{ staff.email }}</p>
+    <p><strong>Phone:</strong> {{ staff.phone }}</p>
+    <p><strong>Department:</strong> {{ staff.department_id }}</p>
+    <p><strong>Gender:</strong> {{ staff.gender }}</p>
+</div>
+{% endblock %}
